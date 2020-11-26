@@ -28,7 +28,9 @@ RSpec.feature "SmartAnswer::BusinessCoronavirusSupportFinderFlow", type: :featur
   # For all other questions, any of the available answers would result in the same next page.
   scenario "Answers for business that does not have non domestic property" do
     visit "/business-coronavirus-support-finder"
-    expect(page).to have_selector("h1", text: headings[:flow_title])
+
+    expect(page).to have_selector("h1", text: headings[:results])
+    expect(page).to have_selector("span.govuk-caption-xl", text: headings[:flow_title])
 
     click_govuk_start_button
     expect(page).to have_selector("h1", text: headings[:business_based])
