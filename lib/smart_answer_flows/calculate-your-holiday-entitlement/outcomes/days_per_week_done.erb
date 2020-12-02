@@ -1,5 +1,8 @@
+<% text_for :title do %>
+  The statutory holiday entitlement is <%= "#{holiday_entitlement_days} #{'day'.pluralize(holiday_entitlement_days)}" %> holiday.
+<% end %>
+
 <% govspeak_for :body do %>
-  $!The statutory holiday entitlement is <%= "#{holiday_entitlement_days} #{'day'.pluralize(holiday_entitlement_days)}" %> holiday.$!
 
   <% if working_days_per_week > 5 %>
     Even though more than 5 days a week are worked, the maximum statutory holiday entitlement is 28 days.
