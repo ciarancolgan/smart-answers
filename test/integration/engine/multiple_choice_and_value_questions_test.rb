@@ -50,13 +50,16 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
       assert_current_url "/bridge-of-death/y/Lancelot"
 
       within ".govuk-table" do
-        assert page.has_link?("Start again", href: "/bridge-of-death")
         within "tbody tr.govuk-table__row" do
           within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "What...is your name?"
           end
           within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "Lancelot" }
         end
+      end
+
+      within ".govuk-body" do
+        assert page.has_link?("Start again", href: "/bridge-of-death")
       end
 
       within "#current-question" do
@@ -79,7 +82,6 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
       assert_current_url "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail"
 
       within ".govuk-table" do
-        assert page.has_link?("Start again", href: "/bridge-of-death")
         within "tbody tr.govuk-table__row:nth-child(1)" do
           within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "What...is your name?"
@@ -92,6 +94,10 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
           end
           within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "To seek the Holy Grail" }
         end
+      end
+
+      within ".govuk-body" do
+        assert page.has_link?("Start again", href: "/bridge-of-death")
       end
 
       within "#current-question" do
@@ -113,7 +119,6 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
       assert_current_url "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail/blue"
 
       within ".govuk-table" do
-        assert page.has_link?("Start again", href: "/bridge-of-death")
         within "tbody tr.govuk-table__row:nth-child(1)" do
           within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "What...is your name?"
@@ -132,6 +137,10 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
           end
           within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "Blue" }
         end
+      end
+
+      within ".govuk-body" do
+        assert page.has_link?("Start again", href: "/bridge-of-death")
       end
 
       within "#result-info" do
@@ -153,7 +162,6 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
     assert_current_url "/bridge-of-death/y/Robin/to_seek_the_holy_grail"
 
     within ".govuk-table" do
-      assert page.has_link?("Start again", href: "/bridge-of-death")
       within "tbody tr.govuk-table__row:nth-child(1)" do
         within ".govuk-table__cell:nth-child(1)" do
           assert_page_has_content "What...is your name?"
@@ -166,6 +174,10 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
         end
         within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "To seek the Holy Grail" }
       end
+    end
+
+    within ".govuk-body" do
+      assert page.has_link?("Start again", href: "/bridge-of-death")
     end
 
     within "#current-question" do
