@@ -225,7 +225,7 @@
   :apprentice_rate: 3.90
   :accommodation_rate: 7.55
 - :start_date: 2020-04-01
-  :end_date: 2021-04-01
+  :end_date: 2021-03-31
   :minimum_rates:
   - :min_age: 0
     :max_age: 18
