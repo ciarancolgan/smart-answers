@@ -30,9 +30,10 @@
   </head>
   <body class="govuk-template__body">
     <div class="govuk-width-container smart_answer" id="wrapper">
-      <main id="content" role="main">
-        <%= yield %>
-      </main>
+      <%= yield :back_link %>
+        <main id="content" role="main">
+          <%= yield %>
+        </main>
       <%= yield :escape_link %>
       <%= render "govuk_publishing_components/components/feedback" %>
     </div>
