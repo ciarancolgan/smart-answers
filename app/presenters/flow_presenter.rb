@@ -89,6 +89,12 @@ class FlowPresenter
     presenter_for(@flow.node(current_state.current_node))
   end
 
+  def previous_state
+    unless current_state.path.empty?
+      presenter_for(@flow.node(current_state.path.last))
+    end
+  end
+
   def start_node
     node = SmartAnswer::Node.new(@flow, @flow.name.underscore.to_sym)
     @start_node ||= StartNodePresenter.new(node)
