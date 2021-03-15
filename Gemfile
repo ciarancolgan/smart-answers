@@ -29,6 +29,7 @@ group :development do
   gem "binding_of_caller"
   gem "listen"
   gem "nokogiri"
+  gem "web-console"
 end
 
 group :development, :test do
