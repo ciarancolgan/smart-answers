@@ -26,6 +26,25 @@ class RevisitPageTest < ActionDispatch::SystemTestCase
     end
   end
 
+  test "back link returns previously visited page with prefilled checkbox answer" do
+    visit "find-coronavirus-support/s"
+    within "legend" do
+      assert_page_has_content "What do you need help with because of coronavirus?"
+    end
+
+    check("Getting food or medicine", visible: false)
+    click_on "Continue"
+    assert_page_has_content "Getting food"
+    click_on "Back"
+    assert_page_has_content "What do you need help with because of coronavirus?"
+
+    checked_box = find(:css, "[value='getting_food']", visible: false)
+    unchecked_box = find(:css, "[value='feeling_unsafe']", visible: false)
+
+    assert_equal(checked_box.checked?, true)
+    assert_equal(unchecked_box.checked?, false)
+  end
+
   test "back link returns previously visited page with prefilled radio button answer" do
     visit "find-coronavirus-support/s"
     within "legend" do
